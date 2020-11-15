@@ -38,9 +38,8 @@ def ndv(data, figsize=None, YX = [-2,-1], vox_sz=None, clim=None, **kwargs):
 
     def refreshimage():
         nonlocal im
-        aspect = vox_sz[rbX.value]/vox_sz[rbY.value] if vox_sz else 'auto'
+        aspect = vox_sz[rbY.value]/vox_sz[rbX.value] if vox_sz else 'auto'
         im = ax.imshow(getslice(), interpolation='nearest', aspect=aspect, vmin=clim_slider.value[0], vmax=clim_slider.value[1], **kwargs)
-        plt.colorbar(im)
         
     def clim_sliderCallback(event):
         im.set_clim(clim_slider.value)
