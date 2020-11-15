@@ -8,7 +8,6 @@ Jupyterlab with ipympl:
 - `conda activate jupyterlab_env`
 - [on Windows, you may have to apply the [shutil.py patch](https://github.com/jupyterlab/jupyter-renderers/issues/127#issuecomment-646571193)]
 - `jupyter labextension install @jupyter-widgets/jupyterlab-manager`
-- `jupyter lab` ...
 
 Work environment: 
 - `conda create -n work_env -c conda-forge python=3 ipympl numpy ipywidgets`
