@@ -5,7 +5,7 @@ A lightweight ipywidgets-based viewer for multidimnsional numpy arrays.
 ### Set up environment
 - ...
 
-### Install tinytracker
+### Install ndview
 Development:
 - Clone this repository. Navigate to the directory containing `setup.py`.
 - `pip install -e .`
@@ -16,5 +16,11 @@ Alternative:
 
 ## Example
 
+```import numpy as np
+from ndview import ndv
+%matplotlib widget
 
+data = np.random.rand(500,200,10,5)
+
+ndv(data)```
 
