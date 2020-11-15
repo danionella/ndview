@@ -1,5 +1,5 @@
-# Multidimensional data viewer
-A lightweight ipywidgets-based viewer for multidimnsional numpy arrays.
+# Multi-dimensional data viewer
+**ndview** is a lightweight multi-dimensional array viewer for jupyter/jupyterlab.
 
 ## Install
 ### Set up environment
@@ -22,5 +22,8 @@ from ndview import ndv
 
 data = np.random.rand(500,200,10,5)
 
-ndv(data)```
+ndv(data)
+```
 
+## See also
+- [napari](https://github.com/napari/napari)
