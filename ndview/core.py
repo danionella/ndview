@@ -2,7 +2,18 @@ import matplotlib.pyplot as plt
 import ipywidgets as widgets
 from ipywidgets import Layout
 
-def ndv(data, figsize=None, YX = [-2,-1], vox_sz=None, clim=None, **kwargs):
+def ndv(data, YX = [-2,-1], voxel_shape=None, clim=None, figsize=None, **kwargs):
+    '''
+    Opens a multi-dimensional array viewer widget in Jupyter
+
+    Args:
+        data (array): The n-dimensional data to be viewed
+        YX: two-element array indicating the data axes to be viewed on start (default: [-2,-1])
+        voxel_shape: n-element array indicating the voxel shape (default: all ones)
+        clim: two-element array indicating the lower and upper limits of the color axis
+        figsize: passed to matplotlib.pyplot.figure
+        **kwargs: passed to matplotlib.pyplot.imshow
+    '''
     
     dims = data.shape
     fig = plt.figure(figsize=figsize)
@@ -38,22 +49,25 @@ def ndv(data, figsize=None, YX = [-2,-1], vox_sz=None, clim=None, **kwargs):
 
     def refreshimage():
         nonlocal im
-        aspect = vox_sz[rbY.value]/vox_sz[rbX.value] if vox_sz else 'auto'
-        im = ax.imshow(getslice(), interpolation='nearest', aspect=aspect, vmin=clim_slider.value[0], vmax=clim_slider.value[1], **kwargs)
+        aspect = voxel_shape[rbY.value]/voxel_shape[rbX.value] if voxel_shape else 'auto'
+        im = ax.imshow(getslice(), aspect=aspect, vmin=clim_slider.value[0], vmax=clim_slider.value[1], **kwargs)
         
     def clim_sliderCallback(event):
         im.set_clim(clim_slider.value)
-
+    
     for i in range(len(dims)):
         slider = widgets.IntSlider(value=0,min=0,max=dims[i]-1,description=f'[{dims[i]}]',layout=Layout(width='500px', height='17px'))
         slider.observe(sliderCallback, names='value')
         sliders.append(slider)
+        
     rbY = widgets.RadioButtons(options=[i for i in range(len(dims))],layout={'width':'40px'},value=(len(dims)+YX[0])%len(dims))
     rbX = widgets.RadioButtons(options=[i for i in range(len(dims))],layout={'width':'40px'},value=(len(dims)+YX[1])%len(dims))
     rbY.observe(rbCallback, names='value')
     rbX.observe(rbCallback, names='value')
-    clim_slider = widgets.FloatRangeSlider(value=clim,min=0,max=data.max(),step=1/1000,description='clim:',readout_format='.3', layout=Layout(width='500px', height='30px'))
+    
+    clim_slider = widgets.FloatRangeSlider(value=clim,min=0,max=clim[1]*2,step=1/1000,description='clim:',readout_format='.3', layout=Layout(width='500px', height='30px'))
     clim_slider.observe(clim_sliderCallback, names='value')
+    
     hb = widgets.HBox([widgets.VBox([widgets.Label('Y'), rbY]), widgets.VBox([widgets.Label('X'), rbX]), widgets.VBox([clim_slider, widgets.VBox(sliders)])])
     display(hb)
     
