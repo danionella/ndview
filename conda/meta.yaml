@@ -5,12 +5,11 @@
 
 package:
   name: {{ name|lower }}
-  version: {{ data.get('version') }}
+  version: {{ data['version'] }}
   #version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ndview-{{ version }}.tar.gz
-  sha256: a1051b4888af0a20573f634a4c8220f9ac0fed5e33bed3c123782846eda51fb6
 
 build:
   number: 0
@@ -37,10 +36,9 @@ test:
     - pip
 
 about:
-  home: https://github.com/danionella/ndview
-  summary: Multidimensional array viewer widget for jupyter
-  license: MIT
-  license_file:
+  home: {{ data['url'] }}
+  license: {{ data['license'] }}
+  summary: {{ data['description'] }}
 
 extra:
   recipe-maintainers:
