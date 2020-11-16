@@ -1,15 +1,16 @@
 {% set name = "ndview" %}
+{% set data = load_setup_py_data(setup_file='../setup.py', from_recipe_dir=True) %}
 #{% set version = "0.0.1.dev0" %}
-{% set data = load_setup_py_data() %}
+{% set version = data.get('version') %}
 
 
 package:
   name: {{ name|lower }}
-  version: {{ data['version'] }}
-  #version: {{ version }}
+  #version: {{ data.version }}
+  version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ndview-{{ data['version'] }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ndview-{{ version }}.tar.gz
 
 build:
   number: 0
