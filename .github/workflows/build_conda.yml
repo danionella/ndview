@@ -1,8 +1,15 @@
 # This is a basic workflow to help you get started with Actions
 name: Build and Upload Conda Package
 
-on: workflow_dispatch
-
+on: 
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'  
 
 jobs:
   deploy:
@@ -69,4 +76,5 @@ jobs:
     - name: Upload
       env:
         ANACONDA_API_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
+      run: |
         anaconda upload --label main osx-64/*.tar.bz2
