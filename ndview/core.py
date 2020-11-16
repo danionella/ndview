@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import ipywidgets as widgets
 from ipywidgets import Layout
+from IPython.display import display
 
 def ndv(data, YX = [-2,-1], voxel_shape=None, clim=None, figsize=None, **kwargs):
     '''
