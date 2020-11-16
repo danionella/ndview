@@ -1,30 +1,26 @@
 # Multi-dimensional data viewer
 **ndview** is a lightweight multi-dimensional array viewer for jupyter/jupyterlab.
 
-## Install (quick)
-- `conda install numpy ipympl ipywidgets`
-- `pip install git+https://github.com/danionella/ndview.git`
-
-## Install (detailed)
+## Install
 ### Set up environment
 Jupyterlab with ipympl:
 - `conda create -n jupyterlab_env -c conda-forge python=3 jupyterlab ipympl nb_conda_kernels nodejs=13`
 - `conda activate jupyterlab_env`
-- [on Windows, you may have to apply the [shutil.py patch](https://github.com/jupyterlab/jupyter-renderers/issues/127#issuecomment-646571193)]
+- [on Windows, you may have to apply the [shutil.py patch](https://github.com/jupyterlab/jupyter-renderers/issues/127#issuecomment-646571193) to install jupyterlab extensions]
 - `jupyter labextension install @jupyter-widgets/jupyterlab-manager`
 
 Work environment: 
 - `conda create -n work_env -c conda-forge python=3 ipympl numpy ipywidgets`
 
 ### Install ndview
-Development:
-- Clone this repository. Navigate to the directory containing `setup.py`.
 - `conda activate work_env`
-- `pip install -e .`
 
-Alternative:
-- `conda activate work_env`
-- `pip install -e git+https://github.com/danionella/ndview.git`
+For the latest release:
+- `pip install ndview`
+
+For development and the latest version:
+- Clone this repository. Navigate to the directory containing `setup.py`.
+- `pip install -e .`
 
 ### Proxy settings
 If you are on linux and use a university/company proxy:
