@@ -3,14 +3,15 @@ import ipywidgets as widgets
 from ipywidgets import Layout
 from IPython.display import display
 
-def ndv(data, YX = [-2,-1], voxel_shape=None, clim=None, figsize=None, **kwargs):
+def ndv(data, YX = [-2,-1], voxel_shape=None, slider_values=None, clim=None, figsize=None, **kwargs):
     '''
     Opens a multi-dimensional array viewer widget in Jupyter
 
     Args:
         data (array): The n-dimensional data to be viewed
         YX: two-element array indicating the data axes to be viewed on start (default: [-2,-1])
-        voxel_shape: n-element array indicating the voxel shape (default: all ones)
+        voxel_shape: n-element array indicating the voxel shape (default: None / all ones)
+        slider_values: n-element array of initial slider values (default: None / all zeros)
         clim: two-element array indicating the lower and upper limits of the color axis
         figsize: passed to matplotlib.pyplot.figure
         **kwargs: passed to matplotlib.pyplot.imshow
@@ -22,6 +23,7 @@ def ndv(data, YX = [-2,-1], voxel_shape=None, clim=None, figsize=None, **kwargs)
     
     plt.show()
     if not clim: clim = [min(0, data.min()), data.max()]
+    if not slider_values: slider_values = np.zeros(len(dims))
     im = []
     sliders = []
     
@@ -57,7 +59,7 @@ def ndv(data, YX = [-2,-1], voxel_shape=None, clim=None, figsize=None, **kwargs)
         im.set_clim(clim_slider.value)
     
     for i in range(len(dims)):
-        slider = widgets.IntSlider(value=0,min=0,max=dims[i]-1,description=f'[{dims[i]}]',layout=Layout(width='500px', height='17px'))
+        slider = widgets.IntSlider(value=slider_values[i],min=0,max=dims[i]-1,description=f'[{dims[i]}]',layout=Layout(width='500px', height='17px'))
         slider.observe(sliderCallback, names='value')
         sliders.append(slider)
         
