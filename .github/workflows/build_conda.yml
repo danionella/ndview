@@ -5,9 +5,11 @@ on:
   workflow_dispatch:
     inputs:
       logLevel:
-        description: 'Hello'     
+        description: 'Name'     
         required: true
-        default: 'you'
+        default: 'me'
+  release:
+    types: [published]
 
 jobs:
   deploy:
@@ -24,7 +26,7 @@ jobs:
       uses: conda-incubator/setup-miniconda@v2.0.0
     - name: Install conda packages
       run: |
-        conda install conda-build conda-verify anaconda
+        conda install conda-build conda-verify anaconda-client
     - name: Build
       run: |
         conda build -c conda-forge --output-folder . .
