@@ -11,7 +11,7 @@ setup(
     version='0.0.1dev',
     description='Multidimensional array viewer widget for jupyter',
     author='jlab.berlin',
-    url='https//github.com/danionella/ndview',
+    url='https://github.com/danionella/ndview',
     packages=['ndview', ], #find_packages(include=['exampleproject', 'exampleproject.*']),
     license='mit',
     python_requires='>=3.5',
