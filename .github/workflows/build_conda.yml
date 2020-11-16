@@ -22,11 +22,14 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: '3.x'
-    - name: Setup Miniconda
-      uses: conda-incubator/setup-miniconda@v2.0.0
-    - name: Install conda packages
+    - name: Install dependencies
       run: |
-        conda install conda-build conda-verify anaconda-client
+        $CONDA/bin/conda install conda-build conda-verify anaconda-client
+   # - name: Setup Miniconda
+   #   uses: conda-incubator/setup-miniconda@v2.0.0
+   # - name: Install conda packages
+   #   run: |
+    #    conda install conda-build conda-verify anaconda-client
     - name: Build
       run: |
         conda build -c conda-forge --output-folder . .
