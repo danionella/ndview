@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ndview',
-    version='0.01dev',
+    version='0.0.1dev',
     description='Multidimensional array viewer widget for jupyter',
     author='jlab.berlin',
     url='https//github.com/danionella/ndview',
