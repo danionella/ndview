@@ -1,0 +1,45 @@
+{% set name = "ndview" %}
+{% set version = "0.0.1.dev0" %}
+
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ndview-{{ version }}.tar.gz
+  sha256: a1051b4888af0a20573f634a4c8220f9ac0fed5e33bed3c123782846eda51fb6
+
+build:
+  number: 0
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - pip
+    - python >=3.5
+  run:
+    - ipympl
+    - ipywidgets
+    - matplotlib-base
+    - numpy
+    - python >=3.5
+
+test:
+  imports:
+    - ndview
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://github.com/danionella/ndview
+  summary: Multidimensional array viewer widget for jupyter
+  license: MIT
+  license_file: LICENSE.md
+
+extra:
+  recipe-maintainers:
+    - benju
