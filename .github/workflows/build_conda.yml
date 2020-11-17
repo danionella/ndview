@@ -24,7 +24,9 @@ jobs:
         python-version: '3.x'
     - name: Install dependencies
       run: |
-        $CONDA/bin/conda install conda-build conda-verify anaconda-client
+        conda install conda-build conda-verify anaconda-client
+        anaconda -h
+    #$CONDA/bin/c
    # - name: Setup Miniconda
    #   uses: conda-incubator/setup-miniconda@v2.0.0
    # - name: Install conda packages
