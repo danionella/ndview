@@ -8,11 +8,11 @@ name: Build and Upload Conda Package
 
 on: 
   workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Name'     
-        required: true
-        default: 'me'
+#    inputs:
+#      logLevel:
+#        description: 'Name'     
+#        required: true
+#        default: 'me'
   release:
     types: [published]
 
