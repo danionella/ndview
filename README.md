@@ -1,5 +1,5 @@
 # Multi-dimensional data viewer
-**ndview** is a lightweight multi-dimensional array viewer for jupyter/jupyterlab.
+**ndview** is a small multi-dimensional array viewer for jupyter/jupyterlab.
 
 ## Install
 ### Set up environment
@@ -10,15 +10,12 @@ Jupyterlab with ipympl:
 - `jupyter labextension install @jupyter-widgets/jupyterlab-manager`
 
 Work environment: 
-- `conda create -n work_env -c conda-forge python=3 ipympl numpy ipywidgets`
+- `conda create -n work_env -c conda-forge python=3 ipympl numpy ipywidgets` (make sure that the ipympl version is the same as in your jupyterlab environment)
 
 ### Install ndview
-- `conda activate work_env`
+- `conda install -c danionella ndview`
 
-For the latest release:
-- `pip install ndview`
-
-For development and the latest version:
+Or, for development and the latest version:
 - Clone this repository. Navigate to the directory containing `setup.py`.
 - `pip install -e .`
 
