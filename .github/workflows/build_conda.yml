@@ -1,4 +1,9 @@
-# This is a basic workflow to help you get started with Actions
+# This workflow builds and uploads a conda package
+
+# Preparation:
+#   - Create a recipe at /conda/meta.yaml
+#   - Visit https://anaconda.org/danionella/settings/access to create a token for read and write access and save it as ANACONDA_TOKEN secret (GitHub settings)
+
 name: Build and Upload Conda Package
 
 on: 
