@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import ipywidgets as widgets
 from ipywidgets import Layout
 from IPython.display import display
-import numpy as np
 
 def ndv(data, YX = [-2,-1], voxel_shape=None, slider_values=None, clim=None, figsize=None, **kwargs):
     '''
@@ -24,7 +23,7 @@ def ndv(data, YX = [-2,-1], voxel_shape=None, slider_values=None, clim=None, fig
     
     plt.show()
     if not clim: clim = [min(0, data.min()), data.max()]
-    if not slider_values: slider_values = np.zeros(len(dims))
+    if not slider_values: slider_values = [0 for i in range(len(dims))]
     im = []
     sliders = []
     
