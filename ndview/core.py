@@ -69,7 +69,7 @@ def ndv(data, YX = [-2,-1], voxel_shape=None, slider_values=None, clim=None, fig
     rbY.observe(rbCallback, names='value')
     rbX.observe(rbCallback, names='value')
     
-    clim_slider = widgets.FloatRangeSlider(value=clim,min=0,max=clim[1]*2,step=1/1000,description='clim:',readout_format='.3', layout=Layout(width='500px', height='30px'))
+    clim_slider = widgets.FloatRangeSlider(value=clim,min=min(0, clim[0]),max=clim[1]*1.5,step=1/1000,description='clim:',readout_format='.3', layout=Layout(width='500px', height='30px'))
     clim_slider.observe(clim_sliderCallback, names='value')
     
     hb = widgets.HBox([widgets.VBox([widgets.Label('Y'), rbY]), widgets.VBox([widgets.Label('X'), rbX]), widgets.VBox([clim_slider, widgets.VBox(sliders)])])
