@@ -4,10 +4,7 @@
 ## Install
 ### Set up environment
 Jupyterlab with ipympl:
-- `conda create -n jupyterlab_env -c conda-forge python=3 jupyterlab ipympl nb_conda_kernels nodejs=13`
-- `conda activate jupyterlab_env`
-- [on Windows, you may have to apply the [shutil.py patch](https://github.com/jupyterlab/jupyter-renderers/issues/127#issuecomment-646571193) to install jupyterlab extensions]
-- `jupyter labextension install @jupyter-widgets/jupyterlab-manager`
+- `conda create -n jupyterlab_env -c conda-forge python=3 jupyterlab ipympl nb_conda_kernels`
 
 Work environment: 
 - `conda create -n work_env -c conda-forge python=3 ipympl numpy ipywidgets` (make sure that the ipympl version is the same as in your jupyterlab environment)
