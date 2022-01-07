@@ -16,25 +16,6 @@ Or, for development and the latest version:
 - Clone this repository. Navigate to the directory containing `setup.py`.
 - `pip install -e .`
 
-### Proxy settings
-If you are on linux and use a university/company proxy:
-```
-export http_proxy="http://proxy.charite.de:8080"
-export https_proxy="http://proxy.charite.de:8080"
-export HTTP_PROXY="http://proxy.charite.de:8080"
-export HTTPS_PROXY="http://proxy.charite.de:8080"
-conda config --set proxy_servers.http http://proxy.charite.de:8080 
-conda config --set proxy_servers.https http://proxy.charite.de:8080
-
-git config --global http.proxy http://proxy.charite.de:8080
-git config --global https.proxy http://proxy.charite.de:8080
-pip config set global.proxy http://proxy.charite.de:8080
-
-//After installing nodejs:
-npm config set http-proxy http://proxy.charite.de:8080
-npm config set https-proxy http://proxy.charite.de:8080
-```
-
 ## Example
 
 ```
