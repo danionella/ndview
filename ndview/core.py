@@ -53,7 +53,7 @@ def ndv(data, YX = [-2,-1], voxel_shape=None, slider_values=None, clim=None, fig
 
     def refreshimage():
         nonlocal im
-        aspect = voxel_shape[rbY.value]/voxel_shape[rbX.value] if voxel_shape else 'auto'
+        aspect = voxel_shape[rbY.value]/voxel_shape[rbX.value] if voxel_shape is not None else 'auto'
         im = ax.imshow(getslice(), aspect=aspect, vmin=clim_slider.value[0], vmax=clim_slider.value[1], **kwargs)
         
     def clim_sliderCallback(event):
